@@ -2,6 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import homeIcon from '../assets/home-icon.svg'
+import searchIcon from '../assets/search-icon.svg'
+import watchlistIcon from '../assets/watchlist-icon.svg'
+import originalsIcon from '../assets/original-icon.svg'
+import movieIcon from '../assets/movie-icon.svg'
+import seriesIcon from '../assets/series-icon.svg'
 
 const Header = (props) => {
     return (
@@ -14,8 +19,28 @@ const Header = (props) => {
                     <img src={homeIcon} alt="home"/>
                      <span>HOME</span>
                 </a>
-               
+                <a href="/search">
+                    <img src={searchIcon} alt="home"/>
+                     <span>SEARCH</span>
+                </a>
+                <a href="/watchlist">
+                    <img src={watchlistIcon} alt="home"/>
+                     <span>WATCHLIST</span>
+                </a>
+                <a href="/originals">
+                    <img src={originalsIcon} alt="home"/>
+                     <span>ORIGINALS</span>
+                </a>
+                <a href="/movies">
+                    <img src={movieIcon} alt="home"/>
+                     <span>MOVIES</span>
+                </a>
+                <a href="/series">
+                    <img src={seriesIcon} alt="home"/>
+                     <span>SERIES</span>
+                </a>
             </NavMenu>
+            <Login>LOGIN</Login>
         </Nav>
     )
 }
@@ -96,6 +121,7 @@ const NavMenu = styled.div`
                 opacity: 0;
                 transform-origin: left center;
                 transform: scaleX(0);
+                /// scaleX from (0) to (1) makes the element appear to grow
                 transition: all .25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
                 visibility: hidden;
                 width: auto;
@@ -109,9 +135,24 @@ const NavMenu = styled.div`
                 opacity: 1 !important;
             }
         }
-    }    
-
+    }        
     /* @media (max-width: 768px) {
         display: none;
     } */
+`;
+
+const Login = styled.a`
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 8px 16px;
+    letter-spacing: 1.2px;
+    border: 1px solid #f9f9f9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s ease-out;
+
+    &:hover {
+        background-color: #ffff;
+        color: rgba(0, 0, 0, 0.6);
+        border-color: transparent;
+    }
 `;
