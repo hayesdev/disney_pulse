@@ -40,7 +40,8 @@ const Header = (props) => {
                      <span>SERIES</span>
                 </a>
             </NavMenu>
-            <Login>LOGIN</Login>
+            {/* <Login>LOGIN</Login> */}
+            <UserImg src=''/>
         </Nav>
     )
 }
@@ -78,7 +79,8 @@ const Logo = styled.a`
 
 const NavMenu = styled.div`
     display: flex;
-    justify-content: flex-end;
+    flex: 1;
+    /* justify-content: flex-end; */
     align-items: center;
     flex-flow: row nowrap;
     height: 100%;
@@ -155,4 +157,11 @@ const Login = styled.a`
         color: rgba(0, 0, 0, 0.6);
         border-color: transparent;
     }
+`;
+
+const UserImg = styled.img`
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
 `;
