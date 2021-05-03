@@ -1,27 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import guy from '../assets/family.jpg'
+import {selectMovies} from '../features/movie/movieSlice'
+import {useSelector} from 'react-redux'
 
 const Movies = () => {
+    const movies = useSelector(selectMovies)
+    console.log('these are movies', movies);
+
     return (
        <Container>
            <h4>Recommended for You</h4>
            <Content>
-                <Wrap>
-                    <img src={guy} alt="family guy"/>
-                </Wrap>
-                <Wrap>
-                    <img src={guy} alt="family guy"/>
-                </Wrap>
-                <Wrap>
-                    <img src={guy} alt="family guy"/>
-                </Wrap>
-                <Wrap>
-                    <img src={guy} alt="family guy"/>
-                </Wrap>
-                <Wrap>
-                    <img src={guy} alt="family guy"/>
-                </Wrap>
+               { movies &&
+                    movies.map((movie) => (
+                        <Wrap key={movie.id}>
+                            <img src={movie.cardImg} alt=''/>
+                        </Wrap>
+                    ))
+               }              
            </Content>
        </Container>
     )
