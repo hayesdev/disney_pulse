@@ -4,18 +4,22 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 
 import "./App.css";
+import Detail from "./components/Detail";
 
 function App() {
   return (
     <div className="App">
-      <Header />
       <Router>
+        <Header />
         <Switch>
           <Route exact path="/">
             <Login />
           </Route>
           <Route exact path="/home">
             <Home />
+          </Route>
+          <Route exact path="/detail">
+            <Detail />
           </Route>
         </Switch>
       </Router>

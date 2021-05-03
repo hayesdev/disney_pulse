@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import homeBackground from '../assets/home-background.png'
 import ImgSlider from './ImgSlider'
+import Movies from './Movies'
 import Viewers from './Viewers'
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
        <Container>
            <ImgSlider />
            <Viewers/>
+           <Movies/>
        </Container>
     )
 }
