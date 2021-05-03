@@ -1,19 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import guy from '../assets/family.jpg'
 import play from '../assets/play-icon-black.png'
 import trailer from '../assets/play-icon-white.png'
 import add from '../assets/watchlist-icon.svg'
 import group from '../assets/group-icon.png'
+import { useParams } from 'react-router-dom'
+import db from '../firebase'
+
 
 const Detail = () => {
+    const {id} = useParams();
+    const [movie, setMovie] = useState({});
+    // making sure useState reflects the data type it expects
+   
+    useEffect(() => {
+        db.collection('movies')
+        .doc(id)
+        .get()
+        .then((doc) => {
+            if (doc.exists) {
+                setMovie(doc.data());
+            } else {
+                console.log('no such movie exists');
+            }
+        })
+        .catch(error => {
+            console.log("Error getting movie", error)
+        })
+    }, [])
+
     return (
         <Container>
             <BackgroundImg>
-                <img src={guy} alt="family guy"/>
+                <img src={movie.backgroundImg} alt=""/>
             </BackgroundImg>
             <ImageTitle>
-                <img src={guy} alt=""/>
+                <img src={movie.titleImg} alt=""/>
             </ImageTitle>
             <Controls>
                 <PlayButton>

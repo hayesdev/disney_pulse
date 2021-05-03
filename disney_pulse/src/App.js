@@ -2,9 +2,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Header from "./components/Header";
 import Home from "./components/Home";
-
-import "./App.css";
 import Detail from "./components/Detail";
+import "./App.css";
 
 function App() {
   return (
@@ -15,10 +14,10 @@ function App() {
           <Route exact path="/">
             <Login />
           </Route>
-          <Route exact path="/home">
+          <Route path="/home">
             <Home />
           </Route>
-          <Route exact path="/detail">
+          <Route path="/detail/:id">
             <Detail />
           </Route>
         </Switch>
