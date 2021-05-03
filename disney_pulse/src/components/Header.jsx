@@ -61,6 +61,7 @@ height: 70px;
 background-color: #090b13;
 letter-spacing: 16px;
 z-index: 3;
+overflow-x: hidden;
 `;
 
 const Logo = styled.a`

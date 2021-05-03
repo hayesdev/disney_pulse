@@ -1,11 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import homeBackground from '../assets/home-background.png'
+import ImgSlider from './ImgSlider'
+import Viewers from './Viewers'
 
 const Home = () => {
     return (
        <Container>
-           Home
+           <ImgSlider />
+           <Viewers/>
        </Container>
     )
 }
