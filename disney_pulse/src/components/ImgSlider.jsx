@@ -76,10 +76,12 @@ const Wrap = styled.div`
         box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
         rgb(0 0 0 / 73%) 0px 16px 10px -10px;
         border: 4px solid transparent;
-        transition-duration: .3s;
+        transition-duration: .25s;
 
         &:hover {
             border: 4px solid rgba(249, 249, 249, .8);
+            box-shadow: rgb(0 0 0 / 80%) 0px 40px 58px -16px,
+        rgb(0 0 0 / 72%) 0px 30px 22px -10px;
         }
     }
 `;
