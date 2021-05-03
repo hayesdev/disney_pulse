@@ -1,3 +1,6 @@
+//need to use firebase and firebase-tools
+import firebase from "firebase";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBuHTXH_iILM_d1r9aVsNOu-UCsfRGnnKc",
   authDomain: "disney-pulse.firebaseapp.com",

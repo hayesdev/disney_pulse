@@ -31,6 +31,12 @@ const Detail = () => {
                     <img src={group} alt="group"/>
                 </GroupWatch>
             </Controls>
+            <Subtitle>
+                Lorem, ipsum dolor lorem
+            </Subtitle>
+            <Description>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos veritatis, adipisci laudantium dolore beatae ipsa enim molestiae officiis quo nesciunt.
+            </Description>
         </Container>
     )
 }
@@ -126,5 +132,19 @@ const GroupWatch = styled(AddButton)`
     width: 44px; 
     height: 44px;
     border-radius: 50%;
-    background-color: rgb(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, .8);
+`;
+
+const Subtitle = styled.div`
+    color: rgb(249, 249, 249);
+    font-size: 15px;
+    min-height: 20px;
+    margin-top: 26px;
+`;
+
+const Description = styled.div`
+    line-height: 1.4;
+    font-size: 20px;
+    margin-top: 16px;
+    color: rgb(249, 249, 249);
 `;
