@@ -1,4 +1,5 @@
 import React from 'react'
+import {auth, provider } from '../firebase'
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
 import homeIcon from '../assets/home-icon.svg'
@@ -7,14 +8,29 @@ import watchlistIcon from '../assets/watchlist-icon.svg'
 import originalsIcon from '../assets/original-icon.svg'
 import movieIcon from '../assets/movie-icon.svg'
 import seriesIcon from '../assets/series-icon.svg'
+import {selectUserName, selectUserPhoto} from '../features/user/userSlice'
+import {useSelector} from 'react-redux'
 
 const Header = (props) => {
+    const userName = useSelector(selectUserName);
+    const userPhoto = useSelector(selectUserPhoto);
+
+    const signIn = () => {
+        auth.signInWithPopup(provider)
+        .then((res) => {
+            console.log(res);
+        })
+    }
+
     return (
         <Nav>
             <Logo>
                 <img  src={logo} alt='Disney logo'/>
             </Logo>
-            <NavMenu>
+                { !userName ? (
+                     <Login onClick={signIn}>LOGIN</Login>) :
+                     <>
+                         <NavMenu>
                 <a href="/home">
                     <img src={homeIcon} alt="home"/>
                      <span>HOME</span>
@@ -40,8 +56,9 @@ const Header = (props) => {
                      <span>SERIES</span>
                 </a>
             </NavMenu>
-            {/* <Login>LOGIN</Login> */}
             <UserImg src=''/>
+                     </>
+                }            
         </Nav>
     )
 }

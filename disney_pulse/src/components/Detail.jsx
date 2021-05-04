@@ -27,38 +27,42 @@ const Detail = () => {
         .catch(error => {
             console.log("Error getting movie", error)
         })
-    }, [])
+    }, [id])
 
     return (
         <Container>
-            <BackgroundImg>
-                <img src={movie.backgroundImg} alt=""/>
-            </BackgroundImg>
-            <ImageTitle>
-                <img src={movie.titleImg} alt=""/>
-            </ImageTitle>
-            <Controls>
-                <PlayButton>
-                    <img src={play} alt="play"/>
-                    <span>PLAY</span>
-                </PlayButton>
-                <TrailerButton>
-                    <img src={trailer} alt="trailer"/>
-                    <span>TRAILER</span>
-                </TrailerButton>
-                <AddButton>
-                    <img src={add} alt="add"/>
-                </AddButton>
-                <GroupWatch>
-                    <img src={group} alt="group"/>
-                </GroupWatch>
-            </Controls>
-            <Subtitle>
-                Lorem, ipsum dolor lorem
-            </Subtitle>
-            <Description>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos veritatis, adipisci laudantium dolore beatae ipsa enim molestiae officiis quo nesciunt.
-            </Description>
+            { movie && (
+                <>
+                    <BackgroundImg>
+                        <img src={movie.backgroundImg} alt=""/>
+                    </BackgroundImg>
+                    <ImageTitle>
+                        <img src={movie.titleImg} alt=""/>
+                    </ImageTitle>
+                    <Controls>
+                        <PlayButton>
+                            <img src={play} alt="play"/>
+                            <span>PLAY</span>
+                        </PlayButton>
+                        <TrailerButton>
+                            <img src={trailer} alt="trailer"/>
+                            <span>TRAILER</span>
+                        </TrailerButton>
+                        <AddButton>
+                            <img src={add} alt="add"/>
+                        </AddButton>
+                        <GroupWatch>
+                            <img src={group} alt="group"/>
+                        </GroupWatch>
+                    </Controls>
+                    <Subtitle>
+                        {movie.subtitle}
+                    </Subtitle>
+                    <Description>
+                        {movie.description}
+                    </Description>
+                </>
+            )}
         </Container>
     )
 }
@@ -93,6 +97,7 @@ const ImageTitle = styled.div`
     min-height: 170px;
     width: 35vw;
     min-width: 200px;
+    margin-top: 75px;
 
     img {
         width: 100%;
@@ -104,6 +109,7 @@ const ImageTitle = styled.div`
 const Controls = styled.div`
     display:flex;
     align-items: center;
+    margin-top: 20px;
     
     > button {
         cursor: pointer;
