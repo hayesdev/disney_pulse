@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import {auth, provider } from '../firebase'
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
@@ -8,20 +10,57 @@ import watchlistIcon from '../assets/watchlist-icon.svg'
 import originalsIcon from '../assets/original-icon.svg'
 import movieIcon from '../assets/movie-icon.svg'
 import seriesIcon from '../assets/series-icon.svg'
-import {selectUserName, selectUserPhoto} from '../features/user/userSlice'
-import {useSelector} from 'react-redux'
+import {
+    selectUserName, 
+    selectUserEmail,
+    selectUserPhoto,
+    setUserLogin,
+    setSignOut
+} from '../features/user/userSlice'
+import {useSelector, useDispatch} from 'react-redux'
 
 const Header = (props) => {
+    const dispatch = useDispatch();
+    const history = useHistory();
     const userName = useSelector(selectUserName);
+    const userEmail = useSelector(selectUserEmail);
     const userPhoto = useSelector(selectUserPhoto);
+
+    useEffect(() => {
+        auth.onAuthStateChanged(async (user) => {
+            if (user) {
+                dispatch(setUserLogin({
+                    name: user.displayName,
+                    email: user.email,
+                    photo: user.photoURL,
+                }))
+                history.push('/')
+            }
+        })
+    }, [])
 
     const signIn = () => {
         auth.signInWithPopup(provider)
         .then((res) => {
-            console.log(res);
+            let user = res.user;
+            dispatch(setUserLogin({
+                name: user.displayName,
+                email: user.email,
+                photo: user.photoURL,
+            }))
+            history.push('/')
         })
     }
 
+    const signOut = () => {
+        auth.signOut()
+        .then(() => {
+            dispatch(setSignOut());
+            history.push('/login')
+            //redirects to login page
+        })
+    }
+    
     return (
         <Nav>
             <Logo>
@@ -31,33 +70,37 @@ const Header = (props) => {
                      <Login onClick={signIn}>LOGIN</Login>) :
                      <>
                          <NavMenu>
-                <a href="/home">
-                    <img src={homeIcon} alt="home"/>
+                    <Link to='/'>
+                         <img src={homeIcon} alt="home"/>
                      <span>HOME</span>
-                </a>
-                <a href="/search">
-                    <img src={searchIcon} alt="home"/>
+                    </Link>
+                <a href='/search'>
+                     <img src={searchIcon} alt="home"/>
                      <span>SEARCH</span>
                 </a>
-                <a href="/watchlist">
-                    <img src={watchlistIcon} alt="home"/>
+                <a href='/watchlist'>
+                     <img src={watchlistIcon} alt="home"/>
                      <span>WATCHLIST</span>
-                </a>
+                    </a>
+        
                 <a href="/originals">
                     <img src={originalsIcon} alt="home"/>
                      <span>ORIGINALS</span>
                 </a>
-                <a href="/movies">
-                    <img src={movieIcon} alt="home"/>
+               <a href="/movies">
+                 <img src={movieIcon} alt="home"/>
                      <span>MOVIES</span>
                 </a>
                 <a href="/series">
-                    <img src={seriesIcon} alt="home"/>
+                 <img src={seriesIcon} alt="home"/>
                      <span>SERIES</span>
                 </a>
             </NavMenu>
-            <UserImg src=''/>
-                     </>
+            <UserImg 
+                onClick={signOut}
+                src={userPhoto}
+            />
+                    </>
                 }            
         </Nav>
     )
