@@ -5,8 +5,7 @@ import {selectMovies} from '../features/movie/movieSlice'
 import {useSelector} from 'react-redux'
 
 const Movies = () => {
-    const movies = useSelector(selectMovies)
-    console.log('these are movies', movies);
+    const movies = useSelector(selectMovies);
 
     return (
        <Container>
