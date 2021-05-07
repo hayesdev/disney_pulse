@@ -9,6 +9,9 @@ import db from '../firebase'
 import {useDispatch, useSelector} from 'react-redux'
 import {setMovies} from '../features/movie/movieSlice'
 import { selectUserName } from "../features/user/userSlice";
+import NewMovies from './NewMovies'
+import Originals from './Originals'
+import Trending from './Trending'
 
 
 const Home = () => {
@@ -58,8 +61,10 @@ const Home = () => {
        <Container>
            <ImgSlider />
            <Viewers/>
-           {/* <Movies/> */}
            <Recommends />
+           <NewMovies />
+           <Originals />
+           <Trending />
        </Container>
     )
 }

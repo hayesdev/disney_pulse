@@ -42,7 +42,7 @@ const ImgSlider = () => {
 export default ImgSlider
 
 const Carousel = styled(Slider)`
-    margin-top: 20px;
+    /* margin-top: 20px; */
 
     ul li button {
         &:before {
@@ -67,11 +67,10 @@ const Carousel = styled(Slider)`
 const Wrap = styled.div`
     cursor: pointer;
 
-
     img {
         width: 100%; 
         height: 100%;
-        padding-top: 40px;
+        /* padding-top: 40px; */
         border-radius: 4px;
         box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
         rgb(0 0 0 / 73%) 0px 16px 10px -10px;
