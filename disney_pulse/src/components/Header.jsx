@@ -74,26 +74,26 @@ const Header = (props) => {
                                 <img src={homeIcon} alt="home"/>
                                 <span>HOME</span>
                             </Link>
-                            <a href='/search'>
+                            <Link to='/home'>
                                 <img src={searchIcon} alt="home"/>
                                 <span>SEARCH</span>
-                            </a>
-                            <a href='/watchlist'>
+                            </Link>
+                            <Link to='/home'>
                                 <img src={watchlistIcon} alt="home"/>
                                 <span>WATCHLIST</span>
-                            </a>
-                            <a href="/originals">
+                            </Link>
+                            <Link to='/home'>
                                 <img src={originalsIcon} alt="home"/>
                                 <span>ORIGINALS</span>
-                            </a>
-                            <a href="/movies">
+                            </Link>  
+                            <Link to='/home'>
                                 <img src={movieIcon} alt="home"/>
                                 <span>MOVIES</span>
-                            </a>
-                            <a href="/series">
+                            </Link>                               
+                            <Link to='/home'>
                                 <img src={seriesIcon} alt="home"/>
                                 <span>SERIES</span>
-                            </a>
+                            </Link>
                         </NavMenu>
                         <UserImg 
                             onClick={signOut}
@@ -125,17 +125,18 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled.a`
-    display: inline-block;
+    width: 80px;
+    /* display: inline-block;
     padding: 0;
     width: 80px;
     margin-top: 4px; 
     max-height: 70px;
-    font-size: 0;
+    font-size: 0; */
 
-    img {
+    /* img {
         display: block;
         width: 100%;
-    }
+    } */
 
     /* @media(max-width: 768px) {
         display: none;
