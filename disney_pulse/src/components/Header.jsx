@@ -34,7 +34,7 @@ const Header = (props) => {
                     email: user.email,
                     photo: user.photoURL,
                 }))
-                history.push('/')
+                history.push('/home')
             }
         })
     }, [])
@@ -48,7 +48,7 @@ const Header = (props) => {
                 email: user.email,
                 photo: user.photoURL,
             }))
-            history.push('/')
+            history.push('/home')
         })
     }
 
@@ -56,7 +56,7 @@ const Header = (props) => {
         auth.signOut()
         .then(() => {
             dispatch(setSignOut());
-            history.push('/login')
+            history.push('/')
             //redirects to login page
         })
     }
@@ -70,7 +70,7 @@ const Header = (props) => {
                      <Login onClick={signIn}>LOGIN</Login>) :
                      <>
                          <NavMenu>
-                    <Link to='/'>
+                    <Link to='/home'>
                          <img src={homeIcon} alt="home"/>
                      <span>HOME</span>
                     </Link>
@@ -99,6 +99,7 @@ const Header = (props) => {
             <UserImg 
                 onClick={signOut}
                 src={userPhoto}
+                title="Sign out"
             />
                     </>
                 }            

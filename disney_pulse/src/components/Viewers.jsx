@@ -5,11 +5,6 @@ import marvel from '../assets/viewers-marvel.png'
 import national from '../assets/viewers-national.png'
 import pixar from '../assets/viewers-pixar.png'
 import starwars from '../assets/viewers-starwars.png'
-// import disneyVideo from 
-// import starWarsVideo from '/star-wars-mov.mp4'
-// import marvelVideo from '/marvel-mov.mp4'
-// import pixarVideo from '/pixar-mov.mp4'
-// import natGeo from '/nat-geo-mov.mp4'
 
 const Viewers = () => {
     return (
@@ -72,6 +67,10 @@ const Container = styled.div`
     grid-gap: 25px;
     margin-top: 30px;
     padding: 30px 0 26px;
+
+    @media(max-width: 768px) {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
 `;
 
 const Wrap = styled.div`
