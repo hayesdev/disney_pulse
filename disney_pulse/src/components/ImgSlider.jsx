@@ -42,7 +42,7 @@ const ImgSlider = () => {
 export default ImgSlider
 
 const Carousel = styled(Slider)`
-    /* margin-top: 20px; */
+    margin-top: 10px;
 
     ul li button {
         &:before {

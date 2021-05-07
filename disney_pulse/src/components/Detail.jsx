@@ -34,33 +34,35 @@ const Detail = () => {
             { movie && (
                 <>
                     <BackgroundImg>
-                        <img src={movie.backgroundImg} alt=""/>
+                        <img src={movie.backgroundImg} alt={movie.title}/>
                     </BackgroundImg>
                     <ImageTitle>
-                        <img src={movie.titleImg} alt=""/>
+                        <img src={movie.titleImg} alt={movie.title}/>
                     </ImageTitle>
-                    <Controls>
-                        <PlayButton>
-                            <img src={play} alt="play"/>
-                            <span>PLAY</span>
-                        </PlayButton>
-                        <TrailerButton>
-                            <img src={trailer} alt="trailer"/>
-                            <span>TRAILER</span>
-                        </TrailerButton>
-                        <AddButton>
-                            <img src={add} alt="add"/>
-                        </AddButton>
-                        <GroupWatch>
-                            <img src={group} alt="group"/>
-                        </GroupWatch>
-                    </Controls>
+                    <ContentMeta>
+                        <Controls>
+                            <PlayButton>
+                                <img src={play} alt="play"/>
+                                <span>PLAY</span>
+                            </PlayButton>
+                            <TrailerButton>
+                                <img src={trailer} alt="trailer"/>
+                                <span>TRAILER</span>
+                            </TrailerButton>
+                            <AddButton>
+                                <img src={add} alt="add"/>
+                            </AddButton>
+                            <GroupWatch>
+                                <img src={group} alt="group"/>
+                            </GroupWatch>
+                        </Controls>
                     <Subtitle>
                         {movie.subtitle}
                     </Subtitle>
                     <Description>
                         {movie.description}
                     </Description>
+                  </ContentMeta>  
                 </>
             )}
         </Container>
@@ -70,9 +72,16 @@ const Detail = () => {
 export default Detail
 
 const Container = styled.div`
-    min-height: calc(100vh -70px);
+    /* min-height: calc(100vh -70px);
     padding: 0 calc(3.5vw + 5px);
+    position: relative; */
+
     position: relative;
+    min-height: calc(100vh-250px);
+    overflow-x: hidden;
+    display: block;
+    top: 72px;
+    padding: 0 calc(3.5vw + 5px);
 
 `;
 
@@ -90,6 +99,24 @@ const BackgroundImg = styled.div`
       height: 100%;
       object-fit: cover;  
     }
+
+    @media (max-width: 768px) {
+      width: initial;
+    }
+
+  /* left: 0px;
+  opacity: 0.8;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  z-index: -1;
+  img {
+    width: 100vw;
+    height: 100vh;
+    @media (max-width: 768px) {
+      width: initial;
+    }
+  } */
 `;
 
 const ImageTitle = styled.div`
@@ -106,6 +133,10 @@ const ImageTitle = styled.div`
     }
 `;
 
+const ContentMeta = styled.div`
+    max-width: 874px;
+`;
+
 const Controls = styled.div`
     display:flex;
     align-items: center;
@@ -117,7 +148,7 @@ const Controls = styled.div`
 `;
 
 const PlayButton = styled.button`
-    display: flex;
+    /* display: flex;
     align-items: center;
     border-radius: 4px;
     font-size: 15px;
@@ -130,6 +161,41 @@ const PlayButton = styled.button`
 
     &:hover {
         background: rgb(198, 198, 198);
+    } */
+
+    font-size: 15px;
+    margin: 0px 22px 0px 0px;
+    padding: 0px 24px;
+    height: 56px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1.8px;
+    text-align: center;
+    text-transform: uppercase;
+    background: rgb (249, 249, 249);
+    border: none;
+    color: rgb(0, 0, 0);
+
+    img {
+        width: 32px;
+    }
+
+    &:hover {
+        background: rgb(198, 198, 198);
+    }
+
+    @media (max-width: 768px) {
+        height: 45px;
+        padding: 0px 12px;
+        font-size: 12px;
+        margin: 0px 10px 0px 0px;
+        
+        img {
+        width: 25px;
+        }
     }
 `;
 
@@ -146,6 +212,7 @@ const AddButton = styled.button`
     margin-right: 16px;
     width: 44px; 
     height: 44px;
+    border: 2px solid white;
     border-radius: 50%;
     background-color: rgb(0, 0, 0, .6);
 
@@ -153,6 +220,7 @@ const AddButton = styled.button`
         background: rgb(198, 198, 198);
     }
 `;
+
 const GroupWatch = styled(AddButton)`
     display: flex;
     justify-content: center;

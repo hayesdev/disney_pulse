@@ -64,44 +64,43 @@ const Header = (props) => {
     return (
         <Nav>
             <Logo>
-                <img  src={logo} alt='Disney logo'/>
+                <img src={logo} alt='Disney logo'/>
             </Logo>
                 { !userName ? (
                      <Login onClick={signIn}>LOGIN</Login>) :
                      <>
-                         <NavMenu>
-                    <Link to='/home'>
-                         <img src={homeIcon} alt="home"/>
-                     <span>HOME</span>
-                    </Link>
-                <a href='/search'>
-                     <img src={searchIcon} alt="home"/>
-                     <span>SEARCH</span>
-                </a>
-                <a href='/watchlist'>
-                     <img src={watchlistIcon} alt="home"/>
-                     <span>WATCHLIST</span>
-                    </a>
-        
-                <a href="/originals">
-                    <img src={originalsIcon} alt="home"/>
-                     <span>ORIGINALS</span>
-                </a>
-               <a href="/movies">
-                 <img src={movieIcon} alt="home"/>
-                     <span>MOVIES</span>
-                </a>
-                <a href="/series">
-                 <img src={seriesIcon} alt="home"/>
-                     <span>SERIES</span>
-                </a>
-            </NavMenu>
-            <UserImg 
-                onClick={signOut}
-                src={userPhoto}
-                title="Sign out"
-            />
-                    </>
+                        <NavMenu>
+                            <Link to='/home'>
+                                <img src={homeIcon} alt="home"/>
+                                <span>HOME</span>
+                            </Link>
+                            <a href='/search'>
+                                <img src={searchIcon} alt="home"/>
+                                <span>SEARCH</span>
+                            </a>
+                            <a href='/watchlist'>
+                                <img src={watchlistIcon} alt="home"/>
+                                <span>WATCHLIST</span>
+                            </a>
+                            <a href="/originals">
+                                <img src={originalsIcon} alt="home"/>
+                                <span>ORIGINALS</span>
+                            </a>
+                            <a href="/movies">
+                                <img src={movieIcon} alt="home"/>
+                                <span>MOVIES</span>
+                            </a>
+                            <a href="/series">
+                                <img src={seriesIcon} alt="home"/>
+                                <span>SERIES</span>
+                            </a>
+                        </NavMenu>
+                        <UserImg 
+                            onClick={signOut}
+                            src={userPhoto}
+                            title="Sign out"
+                        />
+                    </>                          
                 }            
         </Nav>
     )
@@ -110,19 +109,19 @@ const Header = (props) => {
 export default Header
 
 const Nav = styled.nav`
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 0 36px;
-position: fixed;
-top: 0;
-left: 0; 
-right: 0;
-height: 70px;
-background-color: #090b13;
-letter-spacing: 16px;
-z-index: 3;
-overflow-x: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 36px;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    right: 0;
+    height: 70px;
+    background-color: #090b13;
+    letter-spacing: 16px;
+    z-index: 3;
+    overflow-x: hidden;
 `;
 
 const Logo = styled.a`
@@ -137,6 +136,10 @@ const Logo = styled.a`
         display: block;
         width: 100%;
     }
+
+    @media(max-width: 768px) {
+        display: none;
+    }
 `;
 
 const NavMenu = styled.div`
@@ -148,14 +151,24 @@ const NavMenu = styled.div`
     height: 100%;
     margin: 0px;
     margin-right: auto;
-    margin-left: 25px;
+    margin-left: 20px;
     padding: 0px;
     position: relative;
+
+    @media(max-width: 768px) {
+        justify-content: center;
+        margin-left: 0;
+    }
 
     a {
         display: flex;
         align-items: center;
         padding: 0 12px;
+
+        @media(max-width: 480px) {
+            font-size: 12px;
+            padding: 0 6px;
+        }
 
         img {
             height: 20px;
@@ -190,6 +203,7 @@ const NavMenu = styled.div`
                 visibility: hidden;
                 width: auto;
             }
+
         }
 
         &:hover {
@@ -199,7 +213,9 @@ const NavMenu = styled.div`
                 opacity: 1 !important;
             }
         }
-    }        
+    } 
+    
+   
     /* @media (max-width: 768px) {
         display: none;
     } */
@@ -226,4 +242,5 @@ const UserImg = styled.img`
     height: 48px;
     border-radius: 50%;
     cursor: pointer;
+    margin-left: 5px;
 `;
