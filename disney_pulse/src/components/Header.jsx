@@ -137,9 +137,9 @@ const Logo = styled.a`
         width: 100%;
     }
 
-    @media(max-width: 768px) {
+    /* @media(max-width: 768px) {
         display: none;
-    }
+    } */
 `;
 
 const NavMenu = styled.div`
