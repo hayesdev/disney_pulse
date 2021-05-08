@@ -125,28 +125,27 @@ const Nav = styled.nav`
 `;
 
 const Logo = styled.a`
-    width: 80px;
-    /* display: inline-block;
+    /* width: 80px; */
+    display: inline-block;
     padding: 0;
     width: 80px;
-    margin-top: 4px; 
+    /* margin-top: 4px;  */
     max-height: 70px;
-    font-size: 0; */
+    /* font-size: 0; */
 
-    /* img {
+    img {
         display: block;
         width: 100%;
-    } */
+    }
 
-    /* @media(max-width: 768px) {
-        display: none;
-    } */
+    @media(max-width: 480px) {
+        width: 40px;
+    }
 `;
 
 const NavMenu = styled.div`
     display: flex;
     flex: 1;
-    /* justify-content: flex-end; */
     align-items: center;
     flex-flow: row nowrap;
     height: 100%;
@@ -156,9 +155,9 @@ const NavMenu = styled.div`
     padding: 0px;
     position: relative;
 
-    @media(max-width: 768px) {
-        justify-content: center;
-        margin-left: 0;
+    @media(max-width: 480px) {
+            margin-right: 10px;
+        }
     }
 
     a {
@@ -166,9 +165,12 @@ const NavMenu = styled.div`
         align-items: center;
         padding: 0 12px;
 
-        @media(max-width: 480px) {
-            font-size: 12px;
+        @media(max-width: 768px) {
             padding: 0 6px;
+        }
+
+        @media(max-width: 480px) {
+            padding: 0 8px;
         }
 
         img {
@@ -204,7 +206,10 @@ const NavMenu = styled.div`
                 visibility: hidden;
                 width: auto;
             }
-
+            
+            @media(max-width: 480px) {
+                display: none;
+            }
         }
 
         &:hover {
@@ -215,11 +220,6 @@ const NavMenu = styled.div`
             }
         }
     } 
-    
-   
-    /* @media (max-width: 768px) {
-        display: none;
-    } */
 `;
 
 const Login = styled.a`
@@ -244,4 +244,14 @@ const UserImg = styled.img`
     border-radius: 50%;
     cursor: pointer;
     margin-left: 5px;
+
+    @media(max-width: 768px) {
+        width: 36px;
+        height: 36px;
+    }
+
+    @media(max-width: 480px) {
+        width: 24px;
+        height: 24px;
+    }
 `;
